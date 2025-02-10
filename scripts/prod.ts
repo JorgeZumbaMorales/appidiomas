@@ -38,14 +38,14 @@ const main = async () => {
         .values([
           {
             courseId: course.id,
-            title: "Unit 1",
-            description: `Learn the basics of ${course.title}`,
+            title: "Unidad 1",
+            description: `Aprende lo básico de ${course.title}`,
             order: 1,
           },
           {
             courseId: course.id,
-            title: "Unit 2",
-            description: `Learn intermediate ${course.title}`,
+            title: "Unidad 2",
+            description: `Aprende intermedio ${course.title}`,
             order: 2,
           },
         ])

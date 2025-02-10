@@ -21,7 +21,7 @@ export const Quests = ({ points }: Props) => {
             size="sm"
             variant="primaryOutline"
           >
-            View all
+            Ver todo
           </Button>
         </Link>
       </div>
