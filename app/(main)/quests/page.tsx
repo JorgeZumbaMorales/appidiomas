@@ -52,7 +52,7 @@ const QuestsPage = async () => {
             Quests
           </h1>
           <p className="text-muted-foreground text-center text-lg mb-6">
-            Complete quests by earning points.
+            Completa misiones ganando puntos.
           </p>
           <ul className="w-full">
             {quests.map((quest) => {

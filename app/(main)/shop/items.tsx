@@ -56,7 +56,7 @@ export const Items = ({
         />
         <div className="flex-1">
           <p className="text-neutral-700 text-base lg:text-xl font-bold">
-            Refill hearts
+            Rellenar corazones
           </p>
         </div>
         <Button
@@ -94,7 +94,7 @@ export const Items = ({
         />
         <div className="flex-1">
           <p className="text-neutral-700 text-base lg:text-xl font-bold">
-            Unlimited hearts
+            Corazones ilimitados
           </p>
         </div>
         <Button

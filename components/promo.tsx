@@ -15,11 +15,11 @@ export const Promo = () => {
             width={26}
           />
           <h3 className="font-bold text-lg">
-            Upgrade to Pro
+          Actualizar a Pro
           </h3>
         </div>
         <p className="text-muted-foreground">
-          Get unlimited hearts and more!
+        ¡Obtenga corazones ilimitados y más!
         </p>
       </div>
       <Button
@@ -29,7 +29,7 @@ export const Promo = () => {
         size="lg"
       >
         <Link href="/shop">
-          Upgrade today
+          Actualiza Hoy
         </Link>
       </Button>
     </div>

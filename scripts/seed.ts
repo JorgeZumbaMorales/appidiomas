@@ -44,6 +44,11 @@ const main = async () => {
         title: "Croatian",
         imageSrc: "/hr.svg",
       },
+      {
+        id: 5, // Agregar Inglés
+        title: "English",
+        imageSrc: "/en.svg", // Agregar el SVG de la bandera de EE.UU.
+      },
     ]);
 
     await db.insert(schema.units).values([
@@ -54,6 +59,13 @@ const main = async () => {
         description: "Learn the basics of Spanish",
         order: 1,
       },
+      {
+        id: 2, // Nuevo ID para Inglés
+        courseId: 5, // CourseId 5 es para Inglés
+        title: "Unit 1",
+        description: "Aprende los conceptos básicos del inglés",
+        order: 1,
+      }
     ]);
 
     await db.insert(schema.lessons).values([
@@ -87,6 +99,24 @@ const main = async () => {
         order: 5,
         title: "Verbs",
       },
+      {
+        id: 6, // Nuevo ID para la lección
+        unitId: 2, // UnitId 2 es para Inglés
+        order: 1,
+        title: "Basic Greetings",
+      },
+      {
+        id: 7,
+        unitId: 2,
+        order: 2,
+        title: "Common Phrases",
+      },
+      {
+        id: 8,
+        unitId: 2,
+        order: 3,
+        title: "Numbers",
+      },
     ]);
 
     await db.insert(schema.challenges).values([
@@ -111,6 +141,27 @@ const main = async () => {
         order: 3,
         question: 'Which one of these is the "the robot"?',
       },
+      {
+        id: 7,
+        lessonId: 6, // Lesson "Basic Greetings"
+        type: "SELECT",
+        order: 1,
+        question: 'Cuál de estos significa "Hola"',
+      },
+      {
+        id: 8,
+        lessonId: 6,
+        type: "ASSIST",
+        order: 2,
+        question: '"Hello"',
+      },
+      {
+        id: 9,
+        lessonId: 7, // "Common Phrases"
+        type: "SELECT",
+        order: 3,
+        question: '¿Cuál de estos significa "Gracias"?',
+      },
     ]);
 
     await db.insert(schema.challengeOptions).values([
@@ -134,6 +185,33 @@ const main = async () => {
         correct: false,
         text: "el robot",
         audioSrc: "/es_robot.mp3",
+      },
+      {
+        challengeId: 7, // Which one of these means "Hello"?
+        imageSrc: "/hello.svg",
+        correct: true,
+        text: "Hello",
+        audioSrc: "/en_hello.mp3",
+      },
+      {
+        challengeId: 7,
+        imageSrc: "/goodbye.svg",
+        correct: false,
+        text: "Goodbye",
+        audioSrc: "/en_goodbye.mp3",
+      },
+      {
+        challengeId: 8, // "Hello"
+        correct: true,
+        text: "Hello",
+        audioSrc: "/en_hello.mp3",
+      },
+      {
+        challengeId: 9, // "Thank you"
+        imageSrc: "/thanks.svg",
+        correct: true,
+        text: "Thank you",
+        audioSrc: "/en_thanks.mp3",
       },
     ]);
 

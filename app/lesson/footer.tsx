@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 type Props = {
   onCheck: () => void;
-  status: "correct" | "wrong" | "none" | "completed";
+  status: "correcto" | "error" | "ninguno" | "completado";
   disabled?: boolean;
   lessonId?: number;
 };
@@ -23,29 +23,29 @@ export const Footer = ({
   return (
     <footer className={cn(
       "lg:-h[140px] h-[100px] border-t-2",
-      status === "correct" && "border-transparent bg-green-100",
-      status === "wrong" && "border-transparent bg-rose-100",
+      status === "correcto" && "border-transparent bg-green-100",
+      status === "error" && "border-transparent bg-rose-100",
     )}>
       <div className="max-w-[1140px] h-full mx-auto flex items-center justify-between px-6 lg:px-10">
-        {status === "correct" && (
+        {status === "correcto" && (
           <div className="text-green-500 font-bold text-base lg:text-2xl flex items-center">
             <CheckCircle className="h-6 w-6 lg:h-10 lg:w-10 mr-4" />
-            Nicely done!
+            Bien Hecho!
           </div>
         )}
-        {status === "wrong" && (
+        {status === "error" && (
           <div className="text-rose-500 font-bold text-base lg:text-2xl flex items-center">
             <XCircle className="h-6 w-6 lg:h-10 lg:w-10 mr-4" />
-            Try again.
+            Intentalo Otravez!.
           </div>
         )}
-        {status === "completed" && (
+        {status === "completado" && (
           <Button
             variant="default"
             size={isMobile ? "sm" : "lg"}
             onClick={() => window.location.href = `/lesson/${lessonId}`}
           >
-            Practice again
+            Practica de nuevo
           </Button>
         )}
         <Button
@@ -53,12 +53,12 @@ export const Footer = ({
           className="ml-auto"
           onClick={onCheck}
           size={isMobile ? "sm" : "lg"}
-          variant={status === "wrong" ? "danger" : "secondary"}
+          variant={status === "error" ? "danger" : "secondary"}
         >
-          {status === "none" && "Check"}
-          {status === "correct" && "Next"}
-          {status === "wrong" && "Retry"}
-          {status === "completed" && "Continue"}
+          {status === "ninguno" && "Verificar"}
+          {status === "correcto" && "Siguiente"}
+          {status === "error" && "Reintentar"}
+          {status === "completado" && "Continuar"}
         </Button>
       </div>
     </footer>

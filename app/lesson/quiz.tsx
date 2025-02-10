@@ -77,7 +77,7 @@ export const Quiz = ({
   });
 
   const [selectedOption, setSelectedOption] = useState<number>();
-  const [status, setStatus] = useState<"correct" | "wrong" | "none">("none");
+  const [status, setStatus] = useState<"correcto" | "error" | "ninguno">("ninguno");
 
   const challenge = challenges[activeIndex];
   const options = challenge?.challengeOptions ?? [];
@@ -87,7 +87,7 @@ export const Quiz = ({
   };
 
   const onSelect = (id: number) => {
-    if (status !== "none") return;
+    if (status !== "ninguno") return;
 
     setSelectedOption(id);
   };
@@ -95,15 +95,15 @@ export const Quiz = ({
   const onContinue = () => {
     if (!selectedOption) return;
 
-    if (status === "wrong") {
-      setStatus("none");
+    if (status === "error") {
+      setStatus("ninguno");
       setSelectedOption(undefined);
       return;
     }
 
-    if (status === "correct") {
+    if (status === "correcto") {
       onNext();
-      setStatus("none");
+      setStatus("ninguno");
       setSelectedOption(undefined);
       return;
     }
@@ -124,7 +124,7 @@ export const Quiz = ({
             }
 
             correctControls.play();
-            setStatus("correct");
+            setStatus("correcto");
             setPercentage((prev) => prev + 100 / challenges.length);
 
             // This is a practice
@@ -144,7 +144,7 @@ export const Quiz = ({
             }
 
             incorrectControls.play();
-            setStatus("wrong");
+            setStatus("error");
 
             if (!response?.error) {
               setHearts((prev) => Math.max(prev - 1, 0));
@@ -197,7 +197,7 @@ export const Quiz = ({
         </div>
         <Footer
           lessonId={lessonId}
-          status="completed"
+          status="completado"
           onCheck={() => router.push("/learn")}
         />
       </>
@@ -205,7 +205,7 @@ export const Quiz = ({
   }
 
   const title = challenge.type === "ASSIST" 
-    ? "Select the correct meaning"
+    ? "Selecciona el signicado correcto"
     : challenge.question;
 
   return (
