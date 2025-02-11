@@ -103,6 +103,7 @@ export const reduceHearts = async (challengeId: number) => {
     hearts: Math.max(currentUserProgress.hearts - 1, 0),
   }).where(eq(userProgress.userId, userId));
 
+  revalidatePath("/profile");
   revalidatePath("/shop");
   revalidatePath("/learn");
   revalidatePath("/quests");
@@ -130,6 +131,7 @@ export const refillHearts = async () => {
     points: currentUserProgress.points - POINTS_TO_REFILL,
   }).where(eq(userProgress.userId, currentUserProgress.userId));
 
+  revalidatePath("/profile");
   revalidatePath("/shop");
   revalidatePath("/learn");
   revalidatePath("/quests");
